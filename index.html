@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html class="full" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        <link rel="shortcut icon" href="https://schooding-media.ams3.digitaloceanspaces.com/static/images/logo.ico">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-bs4.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/css/bootstrap-notify.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://schooding-media.ams3.digitaloceanspaces.com/static/css/schooding.css?v=1.20">
+        <!-- <link rel="stylesheet" href="https://schooding-media.ams3.digitaloceanspaces.com/static/css/darkmode.css?v=1.16"> -->
+        <script>
+            var lang = "fr";
+
+            console.log = function() {}
+
+            setInterval(function() {
+                $(".modal-backdrop").addClass("removable");
+                $(".modal-backdrop").click(function() {//$(this).hide();
+                })
+            }, 1000);
+        </script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-bs4.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tour/0.12.0/js/bootstrap-tour-standalone.min.js"></script>
+        <script type="text/javascript" src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/vendor/bootstrap-notify.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+        <script type="text/javascript" src="/jsi18n/"></script>
+        <script type="text/javascript">
+
+            var skipVisit = true;
+            var skipSubVisit = true;
+
+            $.ajaxSetup({
+                headers: {
+                    'fake': '1'
+                }
+            });
+
+            var getFormUrl = "/helpers/getform/";
+            var addTagUrl = "/addtag/";
+            var removeTagUrl = "/removetag/";
+            var deleteUrl = "/delete/";
+            var archiveUrl = "/archive/";
+            var shareUrl = "/give/";
+            var duplicateUrl = "/duplicate/";
+            var unarchiveUrl = "/unarchive/";
+            var addRoleUrl = "/addrole/";
+            var removeRoleUrl = "/removerole/";
+            var markMessageUrl = "/forum/message/markviewed/12345/";
+            var userId = 19023;
+            var csrfToken = "kxSoYom4ucEKHVEK8tBDkD1TaHntEP90YG9BVrXoiYhjvSRJ8mQaXJY0Wg1n95G5";
+            var notificationsUrl = "/notifs/list/12345/";
+            var mailsUrl = "/forum/maillist/12345/";
+            var notifReadUrl = "/notifs/readall/";
+            var deleteNotifsUrl = "/notifs/deleteall/";
+            var deleteNotifUrl = "/notifs/delete/12345/";
+            var showDocUrl = "/documents/show/12345/";
+            var docQuestionsListUrl = "/forum/question/list/doc/12345/";
+            var getTaskUrl = "/tasks/gettask/";
+            var getTaskProgressionUrl = "/tasks/gettaskprogression/";
+        </script>
+        <script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/lang.js?v=1.14"></script>
+        <script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/storage.js?v=1.1"></script>
+        <script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/common.tools.js?v=1.45"></script>
+        <script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/sidebars.js?v=1.4"></script>
+        <script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/searchfield.js?v=1.1"></script>
+        <script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/progressbar_autocolor.js?v=1.1"></script>
+        <script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/base.tour.js?v=1.0"></script>
+        <script>
+            $(document).ready(function() {
+                updateLang(".langvar", "fr")
+                updateLangHTML(".langvarhtml", "fr")
+
+            });
+        </script>
+        <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+                overflow: hidden;
+            }
+
+            #exoTabContent {
+                height: calc(100vh - 45px);
+            }
+
+            .tab-pane {
+                height: 100%;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .schooding, .schooding a {
+                background-color: hsl(5208434,100%,20%);
+                color: white!important;
+            }
+
+            .schooding .active {
+                background-color: hsl(5208434,100%,30%);
+                border-width: 3px;
+                border-bottom-width: 0;
+            }
+
+            .paniframe {
+                position: relative;
+                background: url(https://schooding-media.ams3.digitaloceanspaces.com/static/images/loading.gif) center center no-repeat;
+            }
+
+            .exoIframe {
+                height: 100% !important;
+                width: 100%;
+                border: none;
+                display: block;
+            }
+        </style>
+        <script>
+            mailsUrl = "/forum/exammaillist/682/12345/";
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/ua-parser-js@0.7.28/dist/ua-parser.min.js"></script>
+        <script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/mails.js?v=1.2"></script>
+        <script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/documents.tools.js?v=2.22"></script>
+        <script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/chrono.js?v=1.2"></script>
+        <script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/fexam.tools.min.js?v=1.227637"></script>
+    <link rel="stylesheet" href="layout-fix.css">
+<script src="layout-fix.js" defer></script>
+</head>
+    <body class="full headless exam-layout">
+        <div class="fixed-top schoodiv" id="navbars"></div>
+        <nav class="nav nav-tabs schooding schoodiv">
+            <a class="nav-item nav-link active" href="#panelI" data-toggle="tab" id="itab">
+                Instructions<br>et Aide
+            </a>
+            <a class="nav-item nav-link nav-exo disabled" data-exoId="4597" href="#panel4597" data-toggle="tab">
+                <span class="material-icons">code</span>
+                Ex 1<br>
+                <small>
+                    1pts 
+            
+            <span class="exoSave material-icons"></span>
+                </small>
+            </a>
+            <a class="nav-item nav-link nav-exo disabled" data-exoId="4841" href="#panel4841" data-toggle="tab">
+                <span class="material-icons">code</span>
+                Ex 2<br>
+                <small>
+                    1pts 
+            
+            <span class="exoSave material-icons"></span>
+                </small>
+            </a>
+            <a class="nav-item nav-link nav-exo disabled" data-exoId="4599" href="#panel4599" data-toggle="tab">
+                <span class="material-icons">code</span>
+                Ex 3<br>
+                <small>
+                    1pts 
+            
+            <span class="exoSave material-icons"></span>
+                </small>
+            </a>
+            <a class="nav-item nav-link nav-exo disabled" data-exoId="4843" href="#panel4843" data-toggle="tab">
+                <span class="material-icons">code</span>
+                Ex 4<br>
+                <small>
+                    1pts 
+            
+            <span class="exoSave material-icons"></span>
+                </small>
+            </a>
+            <a class="nav-item nav-link nav-exo disabled" data-exoId="4601" href="#panel4601" data-toggle="tab">
+                <span class="material-icons">code</span>
+                Ex 5<br>
+                <small>
+                    1pts 
+            
+            <span class="exoSave material-icons"></span>
+                </small>
+            </a>
+            <a class="nav-item nav-link nav-exo disabled" data-exoId="4602" href="#panel4602" data-toggle="tab">
+                <span class="material-icons">code</span>
+                Ex 6<br>
+                <small>
+                    1pts 
+            
+            <span class="exoSave material-icons"></span>
+                </small>
+            </a>
+            <a class="nav-item nav-link nav-exo disabled" data-exoId="4605" href="#panel4605" data-toggle="tab">
+                <span class="material-icons">code</span>
+                Ex 7<br>
+                <small>
+                    1pts 
+            
+            <span class="exoSave material-icons"></span>
+                </small>
+            </a>
+            <a class="nav-item nav-link nav-exo disabled" data-exoId="4684" href="#panel4684" data-toggle="tab">
+                <span class="material-icons">code</span>
+                Ex 8<br>
+                <small>
+                    1pts 
+            
+            <span class="exoSave material-icons"></span>
+                </small>
+            </a>
+            <a class="nav-item nav-link nav-exo disabled" data-exoId="4681" href="#panel4681" data-toggle="tab">
+                <span class="material-icons">code</span>
+                Ex 9<br>
+                <small>
+                    1pts 
+            
+            <span class="exoSave material-icons"></span>
+                </small>
+            </a>
+            <a class="nav-item nav-link nav-exo disabled" data-exoId="4606" href="#panel4606" data-toggle="tab">
+                <span class="material-icons">code</span>
+                Ex 10<br>
+                <small>
+                    1pts 
+            
+            <span class="exoSave material-icons"></span>
+                </small>
+            </a>
+            <a class="nav-item nav-link nav-exo disabled" data-exoId="4607" href="#panel4607" data-toggle="tab">
+                <span class="material-icons">code</span>
+                Ex 11<br>
+                <small>
+                    1pts 
+            
+            <span class="exoSave material-icons"></span>
+                </small>
+            </a>
+            <a class="nav-item nav-link nav-exo disabled" data-exoId="4608" href="#panel4608" data-toggle="tab">
+                <span class="material-icons">code</span>
+                Ex 12<br>
+                <small>
+                    1pts 
+            
+            <span class="exoSave material-icons"></span>
+                </small>
+            </a>
+            <div id="time" class="ml-auto">
+                <div class="small">
+                    <i>Adrien Larroque</i>
+                </div>
+                <div class="precountdown mr-2">Commence dans : </div>
+                <div class=" mr-2 countdown">cd</div>
+            </div>
+        </nav>
+        <div id="leftSidebar" class="leftsidebar fitToBottom deployable  schoodiv">
+            <div class="sidebuttonbar  minimizable  ml-1">
+                <div class="btn deployer largedeployer">
+                    <span class="material-icons">arrow_left</span>
+                </div>
+            </div>
+            <div class="splitbar minimizable "></div>
+            <div id="leftSidebarContent" class="minimizable fitToBottom vflexcontainer"></div>
+            <div class="minimizedsidebar ml-1 mt-1">
+                <div class="btn minimizer btn-circle btn-outline-dark">
+                    <span class="material-icons">arrow_right</span>
+                </div>
+            </div>
+        </div>
+        <div id="rightSidebar" class="rightsidebar  schoodiv fitToBottom deployable">
+            <div class="sidebuttonbar  minimizable float-right ml-2 mr-1">
+                <div class="btn deployer largedeployer">
+                    <span class="material-icons">arrow_right</span>
+                </div>
+            </div>
+            <div class="splitbar minimizable"></div>
+            <div id="rightSidebarContent" class="minimizable  fitToBottom vflexcontainer"></div>
+            <div class="minimizedsidebar mt-1 mr-1 float-right">
+                <div class="btn btn-circle minimizer  btn-outline-dark">
+                    <span class="material-icons">arrow_left</span>
+                </div>
+            </div>
+        </div>
+        <div id="mainContainer" class="main schoodiv fitToBottom">
+            <div id="exoTabContent" class="tab-content h-100">
+                <div class="tab-pane fade show active  h-100" id="panelI" style="padding:20px">
+                    <h2>Instructions Générales</h2>
+                    Durant l'épreuve, vous n'avez pas le droit : 
+        
+                    <ul>
+                        <li>d'ouvrir d'autres onglets</li>
+                        <li>de sortir de la fenêtre d'examen (n'allez pas sur d'autres sites/programmes).</li>
+                        <li>de s'aider de vos camarades</li>
+                        <li>d'utiliser votre portable (il doit être éteint)</li>
+                        <li>de copier des ressources extérieures à l'examen, y compris vos anciens exercices</li>
+                    </ul>
+                    <div class="alert alert-danger">
+                        <strong>Tout manquement à ces règles peut entrainer des sanctions allant jusqu'au conseil de discipline.</strong>
+                    </div>
+                    <hr>
+                    <h2>Aide</h2>
+                    Vous êtes actuellement connecté en tant que <b>Adrien Larroque</b>
+                    .<br>
+                    Pour changer de langue, utilisez le menu suivant :
+
+                    <span class="dropdown">
+                        <button class="btn-sm btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                            FR
+  <span class="caret"></span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/user/language/en">EN</a>
+                            <a class="dropdown-item" href="/user/language/fr">FR</a>
+                        </div>
+                    </span>
+                    <br>
+                    Si vous souhaitez vous déconnecter, cliquez <a href="/logout/">ici
+</span></a>.<br>
+Si l'examen est terminé, et que vous souhaitez revenir à la page principale, cliquez <a href="/home/">ici
+</span></a>.
+<h3>F.A.Q.</h3>
+<dl>
+    <dt>Question : Puis-je soumettre/tester plusieurs fois un exercice ?</dt>
+    <dl>Vous pouvez le faire autant de fois que vous voulez, vous avez juste 10 secondes entre chaque essai/soumission.</dl>
+    <dt>Question : J'ai fini de répondre aux exercices, puis-je quitter Schooding ?</dt>
+    <dl>Vous pouvez quitter Schooding après avoir terminé vos exercices. Vérifiez bien avant que vous avez soumis chaque exercice !</dl>
+    <dt>Question : Je souhaite me déconnecter de mon compte, mais je n'arrive pas à sortir de la fenêtre d'examen :  que faire ?</dt>
+    <dl>
+        Si vous souhaitez vous déconnecter, cliquez <a href="/logout/">ici
+</span></a>.</dl><dt>Question : J'ai quitté la fenêtre sans faire exprès, et l'ai remise de suite : vais-je être pénalisé ?</dt>
+<dl>Non, ne vous en faites pas. Le focus de fenêtre est juste la pour vous empêcher, tant que possible, d'aller voir d'autres ressources non autorisées. Une sortie de la fenêtre ou une perte de focus de quelques secondes sera donc bien entendu ignorée. </dl>
+<dt>Question : Un de mes exercices ne se charge pas, le cercle "loading" reste affiché : que faire ?</dt>
+<dl>
+    <ul>
+        <li>
+            Cliquez sur le bouton refresh (
+            <span class="btn btn-sm btn-danger">
+                <span class="material-icons">refresh</span>
+            </span>
+            ) en bas à droite de la fenêtre de l'exercice en question. Confirmez votre choix, et attendez une vingtaine de secondes.
+        </li>
+        <li>
+            Si le problème persiste, rafraichissez la page en entière (<kbd>F5</kbd>
+            sur la plupart des navigateurs), après avoir sauvegarder vos exercices.
+        </li>
+        <li>Si le problème persiste, vérifiez votre connexion internet.</li>
+        <li>Si le problème persiste, contactez un enseignant.</li>
+    </ul>
+</dl>
+<dt>Question : Je n'arrive plus a saisir de réponse, la page semble figée : que faire ?</dt>
+<ul>
+    <li>
+        Cliquez sur le bouton refresh (
+        <span class="btn btn-sm btn-danger">
+            <span class="material-icons">refresh</span>
+        </span>
+        ) en bas à droite de la fenêtre de l'exercice en question. Confirmez votre choix, et attendez une vingtaine de seconde.
+    </li>
+    <li>
+        Si le problème persiste, rafraichissez la page en entière (<kbd>F5</kbd>
+        sur la plupart des navigateurs), après avoir sauvegarder vos exercices.
+    </li>
+    <li>Si le problème persiste, vérifiez votre souris et votre clavier.</li>
+    <li>Si le problème persiste, contactez un enseignant.</li>
+</ul>
+</div>
+<div class="tab-pane fade paniframe h-100" id="panel4597">
+    <iframe id="iframe4597" class="exoIframe" height="99%" width="100%" data-exoId="4597" allowfullscreen="true" src="exo_code.html"></iframe>
+    <div class="btn btn-danger" style="position:absolute;z-index: 1000000;bottom:0;right:0;" onclick="examManager.reloadIframeConfirm('#iframe4597')">
+        <span class="material-icons">refresh</span>
+    </div>
+</div>
+<div class="tab-pane fade paniframe h-100" id="panel4841">
+    <iframe id="iframe4841" class="exoIframe" height="99%" width="100%" data-exoId="4841" allowfullscreen="true" src="exo_code_2.html"></iframe>
+    <div class="btn btn-danger" style="position:absolute;z-index: 1000000;bottom:0;right:0;" onclick="examManager.reloadIframeConfirm('#iframe4841')">
+        <span class="material-icons">refresh</span>
+    </div>
+</div>
+<div class="tab-pane fade paniframe h-100" id="panel4599">
+    <iframe id="iframe4599" class="exoIframe" height="99%" width="100%" data-exoId="4599" allowfullscreen="true" src="exo_code_3.html"></iframe>
+    <div class="btn btn-danger" style="position:absolute;z-index: 1000000;bottom:0;right:0;" onclick="examManager.reloadIframeConfirm('#iframe4599')">
+        <span class="material-icons">refresh</span>
+    </div>
+</div>
+<div class="tab-pane fade paniframe h-100" id="panel4843">
+    <iframe id="iframe4843" class="exoIframe" height="99%" width="100%" data-exoId="4843" src="exo_code_4.html"></iframe>
+    <div class="btn btn-danger" style="position:absolute;z-index: 1000000;bottom:0;right:0;" onclick="examManager.reloadIframeConfirm('#iframe4843')">
+        <span class="material-icons">refresh</span>
+    </div>
+</div>
+
+<div class="tab-pane fade paniframe h-100" id="panel4601">
+    <iframe id="iframe4601" class="exoIframe" height="99%" width="100%" data-exoId="4601" src="exo_code_5.html"></iframe>
+    <div class="btn btn-danger" style="position:absolute;z-index: 1000000;bottom:0;right:0;" onclick="examManager.reloadIframeConfirm('#iframe4601')">
+        <span class="material-icons">refresh</span>
+    </div>
+</div>
+
+<div class="tab-pane fade paniframe h-100" id="panel4602">
+    <iframe id="iframe4602" class="exoIframe" height="99%" width="100%" data-exoId="4602" src="exo_code_6.html"></iframe>
+    <div class="btn btn-danger" style="position:absolute;z-index: 1000000;bottom:0;right:0;" onclick="examManager.reloadIframeConfirm('#iframe4602')">
+        <span class="material-icons">refresh</span>
+    </div>
+</div>
+
+<div class="tab-pane fade paniframe h-100" id="panel4605">
+    <iframe id="iframe4605" class="exoIframe" height="99%" width="100%" data-exoId="4605" src="exo_code_7.html"></iframe>
+    <div class="btn btn-danger" style="position:absolute;z-index: 1000000;bottom:0;right:0;" onclick="examManager.reloadIframeConfirm('#iframe4605')">
+        <span class="material-icons">refresh</span>
+    </div>
+</div>
+
+<div class="tab-pane fade paniframe h-100" id="panel4684">
+    <iframe id="iframe4684" class="exoIframe" height="99%" width="100%" data-exoId="4684" src="exo_code_8.html"></iframe>
+    <div class="btn btn-danger" style="position:absolute;z-index: 1000000;bottom:0;right:0;" onclick="examManager.reloadIframeConfirm('#iframe4684')">
+        <span class="material-icons">refresh</span>
+    </div>
+</div>
+
+<div class="tab-pane fade paniframe h-100" id="panel4681">
+    <iframe id="iframe4681" class="exoIframe" height="99%" width="100%" data-exoId="4681" src="exo_code_9.html"></iframe>
+    <div class="btn btn-danger" style="position:absolute;z-index: 1000000;bottom:0;right:0;" onclick="examManager.reloadIframeConfirm('#iframe4681')">
+        <span class="material-icons">refresh</span>
+    </div>
+</div>
+
+<div class="tab-pane fade paniframe h-100" id="panel4606">
+    <iframe id="iframe4606" class="exoIframe" height="99%" width="100%" data-exoId="4606" src="exo_code_10.html"></iframe>
+    <div class="btn btn-danger" style="position:absolute;z-index: 1000000;bottom:0;right:0;" onclick="examManager.reloadIframeConfirm('#iframe4606')">
+        <span class="material-icons">refresh</span>
+    </div>
+</div>
+
+<div class="tab-pane fade paniframe h-100" id="panel4607">
+    <iframe id="iframe4607" class="exoIframe" height="99%" width="100%" data-exoId="4607" src="exo_code_11.html"></iframe>
+    <div class="btn btn-danger" style="position:absolute;z-index: 1000000;bottom:0;right:0;" onclick="examManager.reloadIframeConfirm('#iframe4607')">
+        <span class="material-icons">refresh</span>
+    </div>
+</div>
+
+<div class="tab-pane fade paniframe h-100" id="panel4608">
+    <iframe id="iframe4608" class="exoIframe" height="99%" width="100%" data-exoId="4608" src="exo_code_12.html"></iframe>
+    <div class="btn btn-danger" style="position:absolute;z-index: 1000000;bottom:0;right:0;" onclick="examManager.reloadIframeConfirm('#iframe4608')">
+        <span class="material-icons">refresh</span>
+    </div>
+</div>
+</div></div><script class="schooding">
+
+    const examManager = new ExamManager(7637,"2026-01-19T11:04:44.189019+01:00","2026-01-19T11:04:44.164208+01:00","2026-01-19T13:04:44.164208+01:00",{
+
+        4597: [],
+
+        4841: [],
+
+        4599: [],
+
+        4843: [],
+
+        4601: [],
+
+        4602: [],
+
+        4605: [],
+
+        4684: [],
+
+        4681: [],
+
+        4606: [],
+
+        4607: [],
+
+        4608: [],
+
+    },"/exercice/12345/","?headless=1&session=7637");
+
+    $(document).ready(examManager.init);
+
+    function updateProgressions(exoId, progression) {
+        examManager.updateProgressions(exoId, progression);
+    }
+</script>
+    <script src="script.js"></script> </body>
+</html>
+
+
+

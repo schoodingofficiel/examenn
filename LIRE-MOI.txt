@@ -1,0 +1,14 @@
+Version corrigée — affichage des exercices
+
+Décompressez tout le dossier, puis ouvrez index.html. Gardez les fichiers ensemble.
+
+Correctifs :
+- La zone des exercices occupe l'espace restant sous le menu, même quand il passe sur plusieurs lignes.
+- Les panneaux latéraux vides de la page principale ne réservent plus de place.
+- La taille des exercices et de leur éditeur est recalculée au chargement, au changement d'onglet et au redimensionnement.
+- Les règles de hauteur forcées et contradictoires du premier exercice ont été retirées.
+- Les noms index.html, exo_code.html et script.js correspondent désormais aux liens de la page.
+
+Vérification : les 12 cadres d'exercice occupent toute la zone disponible pour 3 tailles de fenêtre (36 contrôles dans Edge). Les ressources externes étant inaccessibles dans l'environnement de vérification, ce contrôle utilise un style de navigation minimal ; le rendu complet de l'éditeur n'a pas pu être vérifié.
+
+Les pages utilisent encore les ressources externes Schooding et nécessitent une connexion. Le fichier exo_qcm.html fourni était vide. Les fonctions de simulation existantes n'ont pas été modifiées.

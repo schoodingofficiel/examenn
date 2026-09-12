@@ -1,0 +1,29 @@
+/* The navigation takes its actual height, including wrapped tabs. */
+html:has(body.exam-layout), body.exam-layout {
+  height: 100%; margin: 0; overflow: hidden;
+}
+body.exam-layout { display: flex; flex-direction: column; }
+body.exam-layout > .nav-tabs { flex: 0 0 auto; }
+/* These empty outer sidebars must not reserve space around the exercises. */
+body.exam-layout > #leftSidebar,
+body.exam-layout > #rightSidebar { display: none !important; }
+body.exam-layout > #mainContainer {
+  position: relative !important; inset: auto !important;
+  margin: 0 !important; padding: 0 !important;
+  width: 100% !important; max-width: none !important;
+  height: auto !important; min-height: 0 !important;
+  flex: 1 1 0; overflow: hidden;
+}
+body.exam-layout #exoTabContent,
+body.exam-layout #exoTabContent > .tab-pane {
+  height: 100% !important; min-height: 0; width: 100%;
+}
+body.exam-layout #panelI { overflow: auto; }
+body.exam-layout .exoIframe {
+  display: block; width: 100%; height: 100% !important; border: 0;
+}
+html:has(body.exercise-layout), body.exercise-layout {
+  height: 100%; margin: 0;
+}
+body.exercise-layout .fitToBottom { min-height: 0; box-sizing: border-box; }
+body.exercise-layout #wordingCard .card-body { min-height: 0; overflow-y: auto; }

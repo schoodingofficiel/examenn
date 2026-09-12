@@ -1,0 +1,406 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html class="full" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>structClient</title>
+    
+    <link rel="shortcut icon" href="https://schooding-media.ams3.digitaloceanspaces.com/static/images/logo.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-bs4.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/css/bootstrap-notify.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://schooding-media.ams3.digitaloceanspaces.com/static/css/schooding.css?v=1.20">
+    <!-- <link rel="stylesheet" href="https://schooding-media.ams3.digitaloceanspaces.com/static/css/darkmode.css?v=1.16"> -->
+ 
+    <script>var lang="fr";
+    
+    console.log=function(){}
+    
+    setInterval(function(){
+      $(".modal-backdrop").addClass("removable");
+      $(".modal-backdrop").click(function(){
+        //$(this).hide();
+      })
+    }, 1000);
+    </script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-bs4.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tour/0.12.0/js/bootstrap-tour-standalone.min.js"></script>
+   <script type="text/javascript" src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/vendor/bootstrap-notify.min.js"></script>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="/jsi18n/"></script>
+    <script type="text/javascript">
+    
+      var skipVisit = true;
+      var skipSubVisit = true;
+    
+    
+    var getFormUrl = "/helpers/getform/";
+    var addTagUrl = "/addtag/";
+    var removeTagUrl = "/removetag/";
+    var deleteUrl = "/delete/";
+    var archiveUrl = "/archive/";
+    var shareUrl = "/give/";
+    var duplicateUrl = "/duplicate/";
+    var unarchiveUrl = "/unarchive/";
+    var addRoleUrl = "/addrole/";
+    var removeRoleUrl = "/removerole/";  
+    var markMessageUrl = "/forum/message/markviewed/12345/";
+    var userId = 19023;
+    var csrfToken = "sH35TQIOSczY281cO3Mb2ws688InHNF66QkiQTj8GYcxQ5ebOW1IFCpdUHmhc3cb";
+   var notificationsUrl = "/notifs/list/12345/";
+    var mailsUrl = "/forum/maillist/12345/";
+    var notifReadUrl = "/notifs/readall/";
+    var deleteNotifsUrl = "/notifs/deleteall/";
+    var deleteNotifUrl = "/notifs/delete/12345/";
+    var showDocUrl = "/documents/show/12345/";
+    var docQuestionsListUrl = "/forum/question/list/doc/12345/";
+    var getTaskUrl = "/tasks/gettask/";
+    var getTaskProgressionUrl = "/tasks/gettaskprogression/";
+    </script>
+
+  <script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/lang.js?v=1.14"></script>  
+  <script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/storage.js?v=1.1"></script>
+  <script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/common.tools.js?v=1.45"></script>
+  <script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/sidebars.js?v=1.4"></script>
+  <script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/searchfield.js?v=1.1"></script>
+  <script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/progressbar_autocolor.js?v=1.1"></script>
+
+  <script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/base.tour.js?v=1.0"></script>
+ 
+
+   
+
+<script>
+  $(document).ready(function(){
+      updateLang(".langvar", "fr")
+      updateLangHTML(".langvarhtml", "fr")
+      
+      
+      
+
+    });
+  
+  </script>
+   
+
+
+
+
+
+<script>
+var exerciceId = 4602; 
+var isStudent = true;
+var elapsedTimeAtLoad = parseInt(.0);
+var attempts = parseInt(.0);
+var currentProgression = parseInt(100.0);
+var inSession = false;
+var isHomework = false;
+var homeworkUnlocked = false;
+var isHomeworkUnlocker = false;
+var nextExerciceUrl = null;
+try {
+  console.log(currentProgression)
+    parent.updateProgressions(exerciceId, currentProgression);
+  } catch (error) { }
+
+  try {
+   setTimeout(() => {
+    document.dispatchEvent(new KeyboardEvent("keydown", {   key: "F12",
+                altKey: true
+            }));
+          },1000);
+  } catch (error) { }
+
+
+  
+  var sendMessageUrl = "/forum/chat/studentmessage/4602/";
+  var chatHistoryUrl = "/forum/chat/history/4602/19023/12345/";
+
+  var askForHelpUrl = "/askforhelp/4602";
+  
+var updateActivityUrl = "/activities/update/";
+
+
+</script> 
+<script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/exercice.tools.js?v=2.06"></script> 
+<script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/documents.tools.js?v=2.22"></script> 
+
+ <script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/chat.js?v=1.2"></script>
+<link rel="stylesheet" href="https://schooding-media.ams3.digitaloceanspaces.com/static/css/chat.css?v=1.153">
+<script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/activity.js?v=1.35"></script>
+
+<link rel="stylesheet" href="https://schooding-media.ams3.digitaloceanspaces.com/static/css/schooding.codingtest.css?v=1.61">
+
+
+<script>
+  var addFPCUrl = "/codingtest/addforeignerpastedcode/";
+  var updateCodingInfosUrl = '/codingtest/updatecodinginfos/';
+  var submitUrl = "/codingtest/run/";
+  var getTaskUrl = "/tasks/gettask/";
+  var deleteSnippetUrl = "/codingtest/deletesnippet/";
+  var addSnippetUrl = "/codingtest/addsnippet/";
+  var getSnippetUrl = "/codingtest/getsnippet/";
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.0.0/viz.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.0.0/full.render.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ext-language_tools.js"></script>
+<script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/codingtest.editor.js?v=1.52"></script>
+<script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/codingtest.marker.js?v=1.5"></script>
+<script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/codingtest.tour.js?v=1.21"></script>
+<script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/image_display.js?v=1.2"></script>
+<script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/dot_display.js?v=1.2"></script>
+<script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/codingtest.tools.js?v=1.35"></script>
+<script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/codingtest.runner.js?v=1.03"></script>
+<script src="https://schooding-media.ams3.digitaloceanspaces.com/static/js/internal/codingtest.snippets.js?v=1.2"></script>
+
+
+
+
+
+
+  <link rel="stylesheet" href="layout-fix.css">
+<script src="layout-fix.js" defer></script>
+</head>
+  <body class="full headless exercise-layout"> 
+    <div class="fixed-top schoodiv" id="navbars"></div><div id="leftSidebar" class="leftsidebar fitToBottom deployable  schoodiv"><div class="sidebuttonbar  minimizable  ml-1"><div class="btn btn-circle btn-outline-dark deployer mt-1"><span class="material-icons">arrow_left</span></div><div class="btn btn-primary verticaltext mt-1 wordingCard partialminimizer" data-target="#wordingCard">Enoncé</div><div class="btn btn-secondary verticaltext mt-1 toolsCard partialminimizer" data-target="#toolsCard"
+  style="display:none">Outils</div><div class="btn btn-success verticaltext mt-1 gradeCard partialminimizer" data-target="#gradeCard"
+    style="display:none">Notation</div><div class="btn btn-info verticaltext mt-1 lastresultcontainer partialminimizer" data-target="#lastresultcontainer"
+  style="display:none">Dernier résultat</div></div><div class="splitbar minimizable "></div><div id="leftSidebarContent" class="minimizable fitToBottom vflexcontainer"><div id="wordingCol" class="fitToBottom d-flex flex-column">
+    <div class="card partialminimizable mb-2 mt-2 wordingCard minflexitem text-justify" id="wordingCard">
+        <div class="bg-primary card-header text-light">
+            <button class="btn-default btn btn-sm fullscreen-btn float-right" data-toggle="tooltip" title="Mode plein écran"><span class='material-icons'>fullscreen</span></button>
+            <h5>Enoncé</h5>
+        </div>
+        <div tabindex="0" class="card-body yscroller wording" id="wording" aria-labelledby="wording">
+            <h5 class="langvarhtml">$TR$fr Centre matrice</h5>
+            <div class="langvarhtml">
+                $TR$fr <p>Écrire un sous-programme C# "ModificationCentreMatrice" qui reçoit en paramètres deux matrices mat1 et mat2. La matrice mat1 est de format (3,3). La matrice mat2 est carrée et de format supérieur ou égal à (3,3). Le sous-programme doit modifier le centre de la matrice par la somme de la multiplication des voisins du centre de la matrice mat2 par les éléments correspondants dans mat1.</p>
+                <ul>
+                    <li>Si mat1 ou mat2 est null alors le message suivant doit être affiché "l'une des matrices est null".</li>
+                    <li>Si mat1 n'est pas de format (3,3) ou mat2 n'est ni carré ni de format supérieur ou égal à (3,3) alors le message suivant doit être affiché "Erreur data"</li>
+                </ul>
+            </div>
+            <div id="specWording"></div></div></div><div class="card partialminimizable  mb-2 mt-2 toolsCard minflexitem text-justify  wording" id="toolsCard"
+    style="display:none"><div class="card-header text-white bg-secondary"><button class="btn-default btn btn-sm fullscreen-btn float-right" data-toggle="tooltip" title="Mode plein écran"><span class='material-icons'>fullscreen</span></button><h5>Outils</h5></div><div tabindex="0" class="card-body yscroller" id="tools" aria-labelledby="tools"></div></div><div class="card partialminimizable  mb-2 mt-2 gradeCard minflexitem text-justify" id="gradeCard"
+  style="display:none"><div class="card-header text-white bg-success"><div class="btn-group  float-right"><a href="/codingtest/lastresult/4602/123456789/" id="previousStudentBtn" class="btn-default btn btn-sm" data-toggle="tooltip" title="Etudiant précédent"><span class='material-icons'>skip_previous</span></a><a href="/codingtest/lastresult/4602/123456789/"  id="nextStudentBtn" class="btn-default btn btn-sm" data-toggle="tooltip" title="Etudiant suivant"><span class='material-icons'>skip_next</span></a></div><h5>Notation
+      <div class="btn-group"><button class="btn-outline-light btn btn-sm " data-toggle="tooltip"  title="Tout valider" onclick="setAllgrades(100)"><span class='material-icons'>check</span></button><button class="btn-outline-dark btn btn-sm " data-toggle="tooltip" title="Tout invalider" onclick="setAllgrades(0)"><span class='material-icons'>cancel</span></button></div></h5></div><div class="card-body list-group yscroller" id="gradelist" aria-labelledby="gradelist"></div></div><div class="card partialminimizable mb-2 mt-2 lastresultcontainer minflexitem" id="lastresultcontainer"
+    style="display:none"><div class="card-header text-white bg-info"><button class="btn-default btn btn-sm fullscreen-btn float-right" data-toggle="tooltip" title="Mode plein écran"><span class='material-icons'>fullscreen</span></button><h5>Dernier résultat</h5></div><div tabindex="0" class="card-body p-0 yscroller" id="lastresult" aria-labelledby="lastresult"><div id="progressContent" class="bg-white fullscreen-small fullscreen-content" ><h2>En cours d'évaluation</h2><div id="progressContentBody"></div><button class="btn btn-secondary float-right m-2 fullscreen-btn">Revenir à l'exercice</button></div><div id="resultContent"  class="bg-white fullscreen-large fullscreen-content" style="display: flex;flex-direction:column;"><h2 class="only-fullscreen mt-2 mb-2"><img id='gifplace'  style="height:100px;border-radius:10px;margin-right:10px;"><span id="resultContentTitle"></span></h2><div id="resultContentBody" class=" list-group" style="flex: 1 0;"></div><div id="resultContentFooter" class="success-actions-bar  only-fullscreen"><div class="float-right m-2" id="resultModal"><button class="btn btn-secondary fullscreen-btn">Revenir à l'exercice</button><button class="modal-okbutton btn  fullscreen-btn btn-primary ml-2">Réessayer</button></div></div></div><div id="messageContent"  class="bg-white fullscreen-small fullscreen-content"><h2 id="messageContentTitle"></h2><div id="messageContentBody"></div><button class="btn btn-secondary float-right m-2 fullscreen-btn">Revenir à l'exercice</button></div></div></div></div></div><div  class="minimizedsidebar ml-1 mt-1"><div class="btn minimizer btn-circle btn-outline-dark"><span class="material-icons">arrow_right</span></div><div class="btn btn-primary verticaltext mt-1 wordingCard partialminimizer" data-target="#wordingCard">Enoncé</div><div class="btn btn-secondary verticaltext mt-1 toolsCard partialminimizer" data-target="#toolsCard"
+  style="display:none">Outils</div><div class="btn btn-success verticaltext mt-1 gradeCard partialminimizer" data-target="#gradeCard"
+  style="display:none">Notation</div><div class="btn btn-info verticaltext mt-1 lastresultcontainer partialminimizer" data-target="#lastresultcontainer"
+  style="display:none">Dernier résultat</div></div></div><div id="rightSidebar" class="rightsidebar  schoodiv fitToBottom deployable"><div class="sidebuttonbar  minimizable float-right ml-2 mr-1"><div class="btn btn-circle btn-outline-dark deployer mt-1"><span class="material-icons">arrow_right</span></div><div class="btn btn-success  btn-circle mt-1 helpchat partialminimizer"  data-target="#chatCard"  style="display:none"><span class=" material-icons">chat</span></div></div><div class="splitbar minimizable"></div><div id="rightSidebarContent" class="minimizable  fitToBottom vflexcontainer"><div class="card partialminimizable nomax chatCard mt-2 flexitem mb-2 helpchat" id="chatCard" ><div class="card-header  bg-success text-white"  aria-controls="chat" ><h5 data-toggle="collapse" data-target="#chat" aria-expanded="true"><span class=" material-icons">chat</span>&nbsp;Chat Enseignant
+            </h5></div><div tabindex="0" class="card-body collapse show" id="chat" aria-labelledby="chat" style="padding: 0;min-height:20vh; display:flex; "></div></div><script type="text/javascript">
+        $(document).ready(()=>{
+      
+          
+            createChat($("#chat"),"flex-grow: 1" );
+            checkChatAvailable();
+          
+          
+        });
+      </script></div><div  class="minimizedsidebar mt-1 mr-1 float-right"><div class="btn btn-circle minimizer  btn-outline-dark"><span class="material-icons">arrow_left</span></div><div class="btn btn-success btn-circle mt-1 helpchat partialminimizer"  data-target="#chatCard" style="display:none"><span class=" material-icons">chat</span></div></div></div><div id="mainContainer" class="main schoodiv fitToBottom"><div class = "fitToBottom"><div class="fitToBottom mt-2 mb-1" id="idecontainer"><div class="alert alert-info" role="alert">Exercice non commencé</div></div></div></div><script>
+  let ide;
+  function initCodingTestIDE(fontSize, theme, code, aceMode){
+      ide = generateIDE($("#idecontainer"), "");
+      ide.setFontSize(fontSize);
+      ide.setTheme(theme);
+      ide.setContent(code);
+      ide.setLanguage(aceMode);
+      $("#evalBtnGroup").detach().prependTo("#idecontainer .tab-content");
+  }
+
+    
+    
+    //ide
+    initCodingTestIDE(16, "chrome", "", "csharp")
+    
+
+
+    
+
+    // tools generation
+    
+    $(".toolsCard").hide();
+    
+
+
+
+    //snippets manager
+    var snippetsManager = generateSnippetsManager(function (code) {
+      ide.insertCode(code);
+    }, function () {
+      return ide.getSelectedText();
+    });
+    
+    ide.appendToToolbar(snippetsManager.content);
+    snippetsManager.setLanguage(9);
+
+
+
+  //history management
+    
+    let histo = $('<div class="btn-group">' +
+      '<button type="button" class="btn btn-sm  btn-success dropdown-toggle" data-toggle="dropdown">' +
+      'Historique' +
+      '</button>' +
+      '<div class="dropdown-menu h75" id="historyList">' +
+      '</div></div>');
+
+    ide.appendToToolbar(histo);
+    function addHistory(id, date, progression, language) {
+      let item = $('<div class="dropdown-item histo-item" data-id="' + id + '" >' + date + ',' + language + ' (' + progression + '%)</div>');
+      $("#historyList").append(item);
+      item.click(function () {
+        let url = window.location.href;
+
+        url = removeParamInUrl(url, "lang");
+        url = insertParamInUrl(url, "histo", id);
+        window.location.href = url;
+      });
+    }
+    
+    addHistory(18095687, "30 décembre 2025 20:04", 0, "C#");
+    
+    addHistory(18095701, "30 décembre 2025 20:05", 100, "C#");
+    
+    addHistory(18375403, "9 janvier 2026 16:46", 100, "C#");
+    
+    addHistory(18491328, "19 janvier 2026 19:45", 0, "C#");
+    
+    
+
+
+
+
+    
+    
+    
+    
+    
+
+    //reset solution button
+    var resetBtn = generateButtonMaterial("btn-danger btn-sm resetBtn", "delete");
+    resetBtn = $(resetBtn);
+    resetBtn.click(function () {
+      confirm("Vous êtes sur le point de réinitialiser cet exercice. <p><b> C'EST IRRÉVERSIBLE! </b></p><p> Voulez-vous continuer? </p>", function () {
+        $.post({
+          url: "/exercice/reinit/",
+          data: {
+            exercice: 4602,
+        student: 19023,
+      language: current_language_id
+        },
+      success: function (json) {
+        location.reload();
+      }  
+      });
+    });
+  });
+    ide.prependToRightToolbar(resetBtn);
+    
+
+
+    //submit button
+    var hasFirstSubmitted = false;
+
+    function allowToSubmitAgain() {
+      hasFirstSubmitted = false;
+    }
+
+    var runBtn = $('<button  class="btn btn-primary submit" id="runBtn"><span class="material-icons">play_circle_outline</span>Exécuter </button>');
+
+    function submit() {
+      if (!ide.hasChanged() && hasFirstSubmitted) {
+        showContent("resultContent", true);      
+        return;
+      }
+
+      if (runBtn.prop('disabled')) {
+        showContent("resultContent",true);      
+        return;
+      }
+      hasFirstSubmitted = isStudent;
+      ide.resetChange();
+      runBtn.prop('disabled', true);
+      submitCode(ide.getContent(), 4602, 9 );
+    setExerciceCountDown(10);
+  }
+
+    runBtn.click(function () {
+      submit();
+    });
+    ide.appendToFooter(runBtn);
+
+    
+    new CodeMarker(ide, userId, exerciceId, 123);
+
+    $(window).on('beforeunload', function () {
+      if (ide.hasChanged()) return "sur?";
+    });
+
+    
+
+
+
+
+    
+
+    $(document).ready(function () {
+      ide.resize();
+    });
+    
+  
+
+    
+
+
+
+
+    $('#lastresultcontainer .fullscreen-btn').click(function (e) {
+      e.stopPropagation();
+      $('#lastresult').toggleClass("fullscreen");
+    });
+    $('#toolsCard .fullscreen-btn').click(function (e) {
+      e.stopPropagation();
+      $('#toolsCard').toggleClass("fullscreen");
+    });
+    $('#wordingCard .fullscreen-btn').click(function (e) {
+      e.stopPropagation();
+      $('#wordingCard').toggleClass("fullscreen");
+    });
+    $(document).keyup(function(e) {
+      console.log(e);
+      if (e.key === "Escape") { 
+        $('#lastresult').removeClass("fullscreen");
+        e.stopPropagation();
+      }
+    });
+    $('#lastresult').click(function (e) {
+      console.log(e)
+      if(e.target == e.currentTarget){
+      e.stopPropagation();
+      $('#lastresult').removeClass("fullscreen");
+      }
+    });
+  </script>
+  </body>
+</html>
+
